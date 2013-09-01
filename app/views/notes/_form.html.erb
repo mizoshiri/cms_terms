@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="inputs">
-    <%= f.input :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => true, :autofocus => true %>
     <%= f.input :content %>
   </div>
 

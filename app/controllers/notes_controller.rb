@@ -1,10 +1,12 @@
 class NotesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.where(:user_id => current_user.id)
   end
 
   # GET /notes/1
@@ -25,6 +27,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    @note[:user_id] = current_user.id
 
     respond_to do |format|
       if @note.save
