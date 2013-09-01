@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action :set_page, only: [:show, :edit, :update, :destroy, :view]
   #for cancan
   authorize_resource
 
@@ -13,6 +13,9 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+  end
+
+  def view
   end
 
   # GET /pages/new

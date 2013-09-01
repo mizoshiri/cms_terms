@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901021552) do
+ActiveRecord::Schema.define(version: 20130901053514) do
 
   create_table "notes", force: true do |t|
     t.text     "content"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20130901021552) do
   end
 
   create_table "pages", force: true do |t|
-    t.integer  "type_id",    default: 1,    null: false
     t.text     "title",                     null: false
     t.text     "content"
     t.boolean  "status",     default: true, null: false

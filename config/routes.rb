@@ -1,9 +1,11 @@
 CmsTerms::Application.routes.draw do
   resources :notes
-
   devise_for :users
-  resources :pages
-
+  resources :pages do
+      member do
+        get 'view'
+      end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
