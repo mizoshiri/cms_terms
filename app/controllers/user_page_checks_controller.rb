@@ -1,6 +1,14 @@
 class UserPageChecksController < ApplicationController
   
-  before_action :set_user_page_check, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_page_check, only: [:show, :edit, :update, :destroy, :check]
+
+
+  def check
+    @user_page_check.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end
 
   # GET /user_page_checks
   # GET /user_page_checks.json

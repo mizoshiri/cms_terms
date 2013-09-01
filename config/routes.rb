@@ -1,5 +1,10 @@
 CmsTerms::Application.routes.draw do
-  resources :user_page_checks
+
+  resources :user_page_checks do
+      member do
+        delete 'check'
+      end
+  end
 
   resources :notes
   devise_for :users

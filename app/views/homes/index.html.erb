@@ -1,2 +1,21 @@
 <h1>Homes#index</h1>
 <p>Find me in app/views/homes/index.html.erb</p>
+
+
+<% if current_user then %>
+	<h2> Page Notice</h2>
+	<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+	<% @pages.each do |v|%>
+		<tr>
+			<td><%= link_to v.page.try(:title), page_path(v.page_id)%></td>
+			<td><%= link_to 'Check', check_user_page_check_path(v), {:class => "btn"} %></td>
+		<tr>
+	<% end %>
+</table>
+<% end %>
