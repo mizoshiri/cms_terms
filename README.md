@@ -18,5 +18,9 @@ Environments
 * Hosting (heroku)
 
 
+Assets
+----------------
+* Logo http://www.flamingtext.com.au/
+
 Deploy
 ----------------
