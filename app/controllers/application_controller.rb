@@ -20,14 +20,16 @@ class ApplicationController < ActionController::Base
 			if ( params["controller"] == "devise/sessions" && params["action"] == "create") then
 
 				@user = User.where(:email => params["user"]["email"]).first
-				@pages = Page.where(:status => true).
-											where("updated_at > ?", @user.last_sign_in_at).
-											order('updated_at ASC')
-				@pages.each do |v|
-          user_page_check = UserPageCheck.new()
-          user_page_check[:user_id] = @user.id
-          user_page_check[:page_id] = v.id
-          user_page_check.save
+				if !@user.last_sign_in_at.nil? then 
+					@pages = Page.where(:status => true).
+												where("updated_at > ?", @user.last_sign_in_at).
+												order('updated_at ASC')
+					@pages.each do |v|
+	          user_page_check = UserPageCheck.new()
+	          user_page_check[:user_id] = @user.id
+	          user_page_check[:page_id] = v.id
+	          user_page_check.save
+					end
 				end
 			end
 		end
