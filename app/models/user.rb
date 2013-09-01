@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :email, :password, :password_confirmation, :notice_flag
 
   validates :email, :email_format => {:message => 'is not looking good'}, presence: true
   validates :password, presence: true

@@ -9,22 +9,34 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
-	# def after_sign_in_path_for(resource)
-	# 	check_update_page(resource)
-	# 	root_path
-	# end
+	def after_sign_in_path_for(resource)
+		update_user(resource)
+		root_path
+	end
 
 	private
-		# check pages
+		# check pages notice when user login
 		def check_update_page
 			if ( params["controller"] == "devise/sessions" && params["action"] == "create") then
-				pages = Page.where(:status => true).
-											#where("updated_at > ?", v.last_sign_in_at).
+
+				@user = User.where(:email => params["user"]["email"]).first
+				@pages = Page.where(:status => true).
+											where("updated_at > ?", @user.last_sign_in_at).
 											order('updated_at ASC')
-											#debugger
-				pages.each do |v|
-					#UserPageCheck.new
+				@pages.each do |v|
+          user_page_check = UserPageCheck.new()
+          user_page_check[:user_id] = @user.id
+          user_page_check[:page_id] = v.id
+          user_page_check.save
 				end
+			end
+		end
+
+		#update flag if user has UserPageCheck
+		def update_user(v)
+			if !UserPageCheck.where(:user_id => v.id).first.nil? then
+				user = User.find_by_id(v.id)
+				user.update_attribute(:notice_flag , true)
 			end
 		end
 end

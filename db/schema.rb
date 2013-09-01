@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901114255) do
+ActiveRecord::Schema.define(version: 20130901142232) do
 
   create_table "notes", force: true do |t|
     t.text     "content"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20130901114255) do
 
   create_table "user_page_checks", force: true do |t|
     t.integer  "user_id",    null: false
-    t.integer  "integer",    null: false
     t.integer  "page_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 20130901114255) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false, null: false
+    t.boolean  "notice_flag",            default: false, null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

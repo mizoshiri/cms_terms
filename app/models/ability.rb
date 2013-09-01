@@ -11,8 +11,8 @@ class Ability
           can :manage, Note
           can :manage, UserPageCheck
       when false
-          case user.email
-            when 'ayumi+1@sazae.com.au'
+          case user.notice_flag
+            when false
               can :manage, Note
             end
     end
