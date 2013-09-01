@@ -18,9 +18,10 @@ development:
   adapter: postgresql
   encoding: unicode
   database: cms_terms_development
+  host: localhost
   pool: 5
-  username: cms_terms
-  password:
+  username: postgres
+  password: root
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,8 +49,9 @@ test:
   encoding: unicode
   database: cms_terms_test
   pool: 5
-  username: cms_terms
-  password:
+  host: localhost
+  username: postgres
+  password: root
 
 production:
   adapter: postgresql
