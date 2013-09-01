@@ -1,0 +1,29 @@
+<h1>Listing user_page_checks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Page</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_page_checks.each do |user_page_check| %>
+      <tr>
+        <td><%= user_page_check.user_id %></td>
+        <td><%= user_page_check.page_id %></td>
+        <td><%= link_to 'Show', user_page_check %></td>
+        <td><%= link_to 'Edit', edit_user_page_check_path(user_page_check) %></td>
+        <td><%= link_to 'Destroy', user_page_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User page check', new_user_page_check_path %>

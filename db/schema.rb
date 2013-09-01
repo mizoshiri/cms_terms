@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901053514) do
+ActiveRecord::Schema.define(version: 20130901114255) do
 
   create_table "notes", force: true do |t|
     t.text     "content"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20130901053514) do
     t.text     "title",                     null: false
     t.text     "content"
     t.boolean  "status",     default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_page_checks", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "integer",    null: false
+    t.integer  "page_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

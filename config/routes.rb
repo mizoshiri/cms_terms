@@ -1,4 +1,6 @@
 CmsTerms::Application.routes.draw do
+  resources :user_page_checks
+
   resources :notes
   devise_for :users
   resources :pages do

@@ -1,0 +1,12 @@
+<%= simple_form_for(@user_page_check) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :user_id %>
+    <%= f.input :page_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

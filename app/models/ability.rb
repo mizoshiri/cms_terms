@@ -9,8 +9,12 @@ class Ability
       when true
           can :manage, Page
           can :manage, Note
+          can :manage, UserPageCheck
       when false
-          can :manage, Note
+          case user.email
+            when 'ayumi+1@sazae.com.au'
+              can :manage, Note
+            end
     end
     #
     # The first argument to `can` is the action you are giving the user 
