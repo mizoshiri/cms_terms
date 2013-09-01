@@ -71,7 +71,7 @@
               <ul class="nav nav-list">
                 <li><%= link_to "Notes", notes_path  %></li>
               <% if current_user.admin == true then %>
-                <li><%= link_to "Notes", notes_path  %></li>
+                <li class="nav-header">Admin</li>
               <% end %>
               <% if can? :create, Page %>
                 <li><%= link_to "Page", pages_path  %></li>
