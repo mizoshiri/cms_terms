@@ -47,8 +47,11 @@ group :development, :test do
  # gem 'debugger', group: [:development, :test]
  	gem 'rb-readline'
   gem 'debugger'
+  gem 'factory_girl_rails'
 end
 
+#validation for email
+gem 'validates_email_format_of'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
 
 
   attr_accessible :email, :password, :password_confirmation
+
+  validates :email, :email_format => {:message => 'is not looking good'}, presence: true
+  validates :password, presence: true
+
+  has_many :notes
 end
